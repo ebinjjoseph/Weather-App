@@ -56,10 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let bgImg = '';
         const condition = conditionMain.toLowerCase();
         
-        if (condition === 'clear') bgImg = "url('assets/sunny.png')";
-        else if (condition === 'clouds' || condition === 'mist' || condition === 'haze' || condition === 'fog') bgImg = "url('assets/cloudy.png')";
-        else if (condition === 'rain' || condition === 'drizzle' || condition === 'thunderstorm') bgImg = "url('assets/rainy.png')";
-        else if (condition === 'snow') bgImg = "url('assets/snowy.png')";
+        if (condition === 'clear') bgImg = "url('sunny.png')";
+        else if (condition === 'clouds' || condition === 'mist' || condition === 'haze' || condition === 'fog') bgImg = "url('cloudy.png')";
+        else if (condition === 'rain' || condition === 'drizzle' || condition === 'thunderstorm') bgImg = "url('rainy.png')";
+        else if (condition === 'snow') bgImg = "url('snowy.png')";
         
         if (!bgImg) return;
         
