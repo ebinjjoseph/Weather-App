@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <meta name="description" content="A beautiful weather application using OpenWeatherMap API">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Live Weather Tracker</h1>
+    </header>
+    
+    <div class="layout-container">
+        <!-- Left Panel -->
+        <div class="glass-panel side-panel">
+            <div class="search-wrapper">
+                <form id="search-form" class="search-form">
+                    <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+                    <ul id="suggestions-box" class="suggestions-dropdown hidden"></ul>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            
+            <div id="error" class="error hidden status-message">City not found.</div>
+            
+            <div class="about-site">
+                <h3>About This App</h3>
+                <ul>
+                    <li>Real-time weather tracking worldwide.</li>
+                    <li>Powered securely by the OpenWeatherMap API.</li>
+                    <li>Predictive city search autocomplete.</li>
+                    <li>Unique casino slot-machine forecast mechanics.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Right Panel Layout -->
+        <div id="weather-info" class="glass-panel main-panel" style="position: relative; overflow: hidden; padding: 0;">
+            <div id="bg-layer-1" style="position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; transition: opacity 1.5s ease-in-out; opacity: 0; border-radius: 20px;"></div>
+            <div id="bg-layer-2" style="position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; transition: opacity 1.5s ease-in-out; opacity: 0; border-radius: 20px;"></div>
+            
+            <div style="position: relative; z-index: 1; padding: 40px; display:flex; flex-direction:column; justify-content:center; align-items:center; width: 100%; height: 100%;">
+                <h2 id="city-name">LOCATION</h2>
+                <div class="weather-main">
+                    <div id="icon-slot-container" class="slot-column-container">
+                        <span style="display: block; width: 120px; height: 120px;"></span>
+                    </div>
+                    <div class="temp-wrapper">
+                        <span id="temperature">0</span><span class="unit">°C</span>
+                    </div>
+                </div>
+                <div class="condition" id="condition">condition</div>
+                <div class="details">
+                    <div class="detail-item">
+                        <span class="label">Humidity</span>
+                        <span id="humidity" class="value">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

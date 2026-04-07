@@ -1,0 +1,327 @@
+/* Blue and White Theme with Glassmorphism */
+:root {
+    --primary-blue: #1d4ed8;
+    --light-blue: #93c5fd;
+    --white: #ffffff;
+    --text-dark: #1e293b;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd, #7dd3fc, #38bdf8, #0ea5e9);
+    background-size: 300% 300%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Header */
+.app-header {
+    width: 100%;
+    padding: 32px 48px;
+    text-align: left;
+}
+
+.app-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0f172a;
+    letter-spacing: 1px;
+}
+
+/* Dashboard Layout */
+.layout-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 48px 48px 48px;
+    gap: 32px;
+    flex: 1; 
+}
+
+@media (max-width: 800px) {
+    .layout-container {
+        flex-direction: column;
+        padding: 0 24px 24px 24px;
+    }
+}
+
+/* Glass Panels */
+.glass-panel {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    padding: 40px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.side-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+}
+
+.main-panel {
+    flex: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Forms & UI */
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.search-form input {
+    padding: 16px 20px;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-form input:focus {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 3px rgba(186, 230, 253, 0.5);
+}
+
+.search-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.suggestions-dropdown {
+    position: absolute;
+    top: 56px; /* Just below input */
+    left: 0;
+    width: 100%;
+    max-height: 220px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    list-style: none;
+    padding: 8px 0;
+    z-index: 100;
+}
+
+.suggestions-dropdown li {
+    padding: 12px 20px;
+    cursor: pointer;
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.suggestions-dropdown li:hover {
+    background: rgba(59, 130, 246, 0.15);
+}
+
+.suggestions-dropdown .state-country {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 400;
+}
+
+.search-form button {
+    padding: 16px 24px;
+    border: none;
+    border-radius: 14px;
+    background: var(--primary-blue);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
+}
+
+.search-form button:hover {
+    transform: translateY(-2px);
+    background: #1e3a8a;
+    box-shadow: 0 6px 16px rgba(29, 78, 216, 0.4);
+}
+
+/* About Block */
+.about-site {
+    margin-top: auto;
+    padding-top: 32px;
+    text-align: left;
+    color: #334155;
+}
+
+.about-site h3 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    color: #0f172a;
+}
+
+.about-site ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.about-site li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 20px;
+}
+
+.about-site li::before {
+    content: "•";
+    color: var(--primary-blue);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Weather Typography */
+#city-name {
+    font-size: 2.75rem; 
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #0f172a;
+    letter-spacing: 2px;
+    max-width: 100%; 
+    word-wrap: break-word; 
+}
+
+.weather-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.slot-column-container {
+    display: inline-block;
+    overflow: hidden;
+    height: 120px; 
+    width: 120px;
+    vertical-align: bottom;
+}
+
+.temp-wrapper {
+    font-size: 5.5rem; 
+    font-weight: 600;
+    line-height: 1;
+    color: #0f172a;
+    display: flex;
+    align-items: flex-start;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 2px;
+}
+
+.unit {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.condition {
+    font-size: 1.75rem;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+    font-weight: 500;
+    color: #334155;
+    letter-spacing: 2px;
+}
+
+.details {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(15, 23, 42, 0.1);
+    padding-top: 32px;
+    width: 100%;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-item .label {
+    font-size: 1.1rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+.detail-item .value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0f172a;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 2px;
+}
+
+/* Utilities */
+.hidden {
+    display: none !important;
+}
+
+.status-message {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.error {
+    color: #b91c1c;
+    background: rgba(254, 226, 226, 0.8);
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #fecaca;
+    width: 100%;
+}
