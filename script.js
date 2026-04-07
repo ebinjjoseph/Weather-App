@@ -52,37 +52,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function setWeatherBackground(conditionMain) {
-        let bgImg = '';
-        const condition = conditionMain.toLowerCase();
-        
-        if (condition === 'clear') bgImg = "url('sunny.png')";
-        else if (condition === 'clouds' || condition === 'mist' || condition === 'haze' || condition === 'fog') bgImg = "url('cloudy.png')";
-        else if (condition === 'rain' || condition === 'drizzle' || condition === 'thunderstorm') bgImg = "url('rainy.png')";
-        else if (condition === 'snow') bgImg = "url('snowy.png')";
-        
-        if (!bgImg) return;
-        
-        // This is the magical "gradient that makes it not that visible" user requirement
-        // It blends an 80% opacity white fade directly on top of the cartoon landscape!
-        const blendedBg = `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), ${bgImg}`;
-        
-        if (activeLayer === 1) {
-            bgLayer2.style.background = blendedBg;
-            bgLayer2.style.backgroundSize = "cover"; 
-            bgLayer2.style.backgroundPosition = "center";
-            bgLayer2.style.opacity = '1';
-            bgLayer1.style.opacity = '0';
-            activeLayer = 2;
-        } else {
-            bgLayer1.style.background = blendedBg;
-            bgLayer1.style.backgroundSize = "cover"; 
-            bgLayer1.style.backgroundPosition = "center";
-            bgLayer1.style.opacity = '1';
-            bgLayer2.style.opacity = '0';
-            activeLayer = 1;
-        }
+ function setWeatherBackground(conditionMain) {
+    let bgImg = '';
+    const condition = conditionMain.toLowerCase();
+    
+    if (condition === 'clear') bgImg = "url('./sunny.png')";
+    else if (condition === 'clouds' || condition === 'mist' || condition === 'haze' || condition === 'fog') bgImg = "url('./cloudy.png')";
+    else if (condition === 'rain' || condition === 'drizzle' || condition === 'thunderstorm') bgImg = "url('./rainy.png')";
+    else if (condition === 'snow') bgImg = "url('./snowy.png')";
+    
+    if (!bgImg) return;
+    
+    const blendedBg = `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), ${bgImg}`;
+    
+    if (activeLayer === 1) {
+        bgLayer2.style.background = blendedBg;
+        bgLayer2.style.backgroundSize = "cover"; 
+        bgLayer2.style.backgroundPosition = "center";
+        bgLayer2.style.opacity = '1';
+        bgLayer1.style.opacity = '0';
+        activeLayer = 2;
+    } else {
+        bgLayer1.style.background = blendedBg;
+        bgLayer1.style.backgroundSize = "cover"; 
+        bgLayer1.style.backgroundPosition = "center";
+        bgLayer1.style.opacity = '1';
+        bgLayer2.style.opacity = '0';
+        activeLayer = 1;
     }
+}
 
     function getRandomChar(targetChar) {
         if (/[0-9]/.test(targetChar)) return digits[Math.floor(Math.random() * digits.length)];
