@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rollSlotMachine(elCity, "Error");
             rollSlotMachine(elTemp, "0");
             rollIconSlotMachine(iconContainer, "50d"); // Provide mist/haze code placeholder on error
-            rollSlotMachine(elCond, "found");
+            rollSlotMachine(elCond, "not found");
             rollSlotMachine(elHumid, "0%");
             showError(err.message);
         }
