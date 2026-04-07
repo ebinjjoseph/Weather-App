@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // This is the magical "gradient that makes it not that visible" user requirement
         // It blends an 80% opacity white fade directly on top of the cartoon landscape!
-        const blendedBg = `linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9)), ${bgImg}`;
+        const blendedBg = `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), ${bgImg}`;
         
         if (activeLayer === 1) {
             bgLayer2.style.background = blendedBg;
