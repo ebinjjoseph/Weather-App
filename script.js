@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (!bgImg) return;
     
-    const blendedBg = `linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9)), ${bgImg}`;
+    const blendedBg = `linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9)), ${bgImg}`;
     
     if (activeLayer === 1) {
         bgLayer2.style.background = blendedBg;
